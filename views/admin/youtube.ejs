@@ -1,0 +1,42 @@
+<%- include('../partials/head', {title: 'Admin Panel'}) %>
+<%- include('../partials/adminnav') %>
+<%- include('../partials/flash') %>
+<div class="formContainer">
+  <form action="/youtube" method="post" class="formStyles">
+    <label class="form-label" for="youtubeId">Youtube Post Url</label>
+    <input required id="youtubeId" type="text" name="postUrl" placeholder="YOUR VIDEO ID" class="form-control" />
+    <label class="form-label mt-1" for="youtubeTitle">Post Title</label>
+    <input required id="youtubeTitle" type="text" name="postTitle" placeholder="TITLE" class="form-control" />
+    <label class="form-label mt-1" for="youtubeDescription">Post Description</label>
+    <input required id="youtubeDescription" type="text" name="postDescription" placeholder="SMALL DESCRIPTION" class="form-control" />
+    <button class="btn btn-success mt-3 w-100" type="submit">Save</button>
+  </form>
+</div>
+<div class="centeredContainer">
+  <h1 class="centeredHeading">Previous Posts</h1>
+</div>
+<div class="previousSection">
+  <% if(posts.length) {%>
+  <div class="contentWrapper">
+    <% posts.map(({postUrl, _id, postTitle,postDescription}) => { %>
+    <div class="post">
+      <iframe width="100%" height="100%" src="https://www.youtube.com/embed/<%= postUrl %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      <div class="imgContent">
+        <p class="mainTitle"><%= postTitle %></p>
+        <p class="description"><%= postDescription %></p>
+        <!-- <p class="date">5/27/15</p> -->
+      </div>
+      <div class="buttonWrapper">
+        <a href="/youtube/edit/<%= _id %>" class="btn btn-warning">Edit</a>
+        <form action="/youtube/delete/<%= _id %>?_method=DELETE" method="post">
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+  <% }else{ %>
+  <p class="centeredText">No post found!</p>
+  <% } %>
+</div>
+<%- include('../partials/body') %>

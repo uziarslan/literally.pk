@@ -1,0 +1,90 @@
+@font-face {
+    font-family: "MyFontBold";
+    src: url('/fonts/FontsFree-Net-Mainlux-Bold.ttf');
+}
+
+@font-face {
+    font-family: "MyFont";
+    src: url('/fonts/FontsFree-Net-Mainlux-Regular.ttf');
+}
+
+.formContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formStyles {
+    width: 400px;
+    height: auto;
+    padding: 15px;
+    background-color: antiquewhite;
+    border-radius: 10px;
+}
+
+.centeredContainer {
+    display: flex;
+    justify-content: center;
+    margin: 25px 0;
+}
+
+.centeredHeading {
+    border-bottom: 2px solid black;
+    font-family: "MyFont";
+    text-align: center;
+}
+
+.centeredText {
+    font-family: "MyFont";
+    text-align: center;
+}
+
+.previousSection {
+    padding: 0 25px;
+}
+
+.buttonWrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.customLabel {
+    padding: 10px 12px;
+    background-color: #FCD31D;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: "MyFontBold";
+    margin-top: 15px;
+    width: 100%;
+    text-align: center;
+}
+
+.imagePreviewContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.previewImage {
+    width: 100px;
+    height: auto;
+    margin-top: 15px;
+}
+
+.imageContainer {
+    width: 350px;
+    height: auto;
+}
+
+.blogImage {
+    width: 350px;
+    height: auto;
+}
+
+.imagesUploadContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 15px;
+}

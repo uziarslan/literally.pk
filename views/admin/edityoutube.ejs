@@ -1,0 +1,15 @@
+<%- include('../partials/head', {title: 'Admin Panel'}) %>
+<%- include('../partials/adminnav') %>
+<%- include('../partials/flash') %>
+<div class="formContainer">
+  <form action="/youtube/<%= post._id %>?_method=PUT" method="post" class="formStyles">
+    <label class="form-label" for="instagram">Youtube Post Url</label>
+    <input value="<%= post.postUrl %>" id="instagram" type="text" name="postUrl" placeholder="YOUR VIDEO ID" class="form-control" />
+    <label class="form-label mt-1" for="youtubeTitle">Post Title</label>
+    <input required value="<%= post.postTitle %>" id="youtubeTitle" type="text" name="postTitle" placeholder="TITLE" class="form-control" />
+    <label class="form-label mt-1" for="youtubeDescription">Post Description</label>
+    <input required value="<%= post.postDescription %>" id="youtubeDescription" type="text" name="postDescription" placeholder="SMALL DESCRIPTION" class="form-control" />
+    <button class="btn btn-success mt-3 w-100" type="submit">Save</button>
+  </form>
+</div>
+<%- include('../partials/body') %>

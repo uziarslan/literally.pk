@@ -1,0 +1,11 @@
+<%- include('../partials/head', {title: 'Admin Panel'}) %>
+<%- include('../partials/adminnav') %>
+<%- include('../partials/flash') %>
+<div class="formContainer">
+  <form action="/instagram/<%= post._id %>?_method=PUT" method="post" class="formStyles">
+    <label class="form-label" for="instagram">Instagram Post Url</label>
+    <input value="<%= post.postUrl %>" id="instagram" type="text" name="postUrl" placeholder="https://www.instagram.com/p/YourPlaceholderPostID/" class="form-control" />
+    <button class="btn btn-success mt-3 w-100" type="submit">Save</button>
+  </form>
+</div>
+<%- include('../partials/body') %>

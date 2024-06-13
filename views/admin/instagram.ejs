@@ -1,0 +1,34 @@
+<%- include('../partials/head', {title: 'Admin Panel'}) %>
+<%- include('../partials/adminnav') %>
+<%- include('../partials/flash') %>
+<div class="formContainer">
+  <form action="/instagram" method="post" class="formStyles">
+    <label class="form-label" for="instagram">Instagram Post Url</label>
+    <input id="instagram" type="text" name="postUrl" placeholder="https://www.instagram.com/p/YourPlaceholderPostID/" class="form-control" />
+    <button class="btn btn-success mt-3 w-100" type="submit">Save</button>
+  </form>
+</div>
+<div class="centeredContainer">
+  <h1 class="centeredHeading">Previous Posts</h1>
+</div>
+<div class="previousSection">
+  <% if(posts.length) {%>
+  <div class="contentWrapper">
+    <% posts.map(({postUrl, _id}) => { %>
+    <div class="post">
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="<%= postUrl %>" data-instgrm-version="13">
+      </blockquote>
+      <div class="buttonWrapper">
+        <a href="/instagram/edit/<%= _id %>" class="btn btn-warning">Edit</a>
+        <form action="/instagram/delete/<%= _id %>?_method=DELETE" method="post">
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+  <% }else{ %>
+  <p class="centeredText">No post found!</p>
+  <% } %>
+</div>
+<%- include('../partials/body') %>

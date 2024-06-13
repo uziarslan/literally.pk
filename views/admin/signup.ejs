@@ -1,0 +1,13 @@
+<%- include('../partials/head', {title: 'Admin Panel'}) %>
+<%- include('../partials/adminnav') %>
+<div class="formContainer">
+  <form action="/signup" method="post" class="formStyles">
+    <%- include('../partials/flash') %>
+    <label class="form-label" for="instagram">Email</label>
+    <input required id="instagram" type="email" name="username" placeholder="admin@admin.com" class="form-control" />
+    <label class="form-label mt-1" for="youtubeDescription">Password</label>
+    <input id="youtubeDescription" type="password" name="password" placeholder="Password" class="form-control" />
+    <button class="btn btn-success mt-3 w-100" type="submit">Login</button>
+  </form>
+</div>
+<%- include('../partials/body') %>

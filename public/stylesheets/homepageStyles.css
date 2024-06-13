@@ -1,0 +1,312 @@
+@font-face {
+    font-family: "MyFontBold";
+    src: url('/fonts/FontsFree-Net-Mainlux-Bold.ttf');
+}
+
+@font-face {
+    font-family: "MyFont";
+    src: url('/fonts/FontsFree-Net-Mainlux-Regular.ttf');
+}
+
+.instagram-media {
+    min-width: 308px !important;
+    /* Adjust this value as needed */
+}
+
+li {
+    list-style: none;
+    font-family: 'MyFontBold';
+}
+
+ul {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-size: 1rem;
+}
+
+header {
+    position: relative;
+    padding: 0 2rem;
+    background-color: #FCD31D;
+    box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25);
+}
+
+.nvbar {
+    width: 100%;
+    height: 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-family: "Budmo W00 Solid";
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.logo img {
+    width: auto;
+    height: 80px;
+}
+
+.nvbar .links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nvbar .toggleBtn {
+    color: black;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+}
+
+.dropdownMenu {
+    display: none;
+    position: absolute;
+    height: 0;
+    right: 2rem;
+    top: 93px;
+    width: 300px;
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    background-color: #FCD31D;
+}
+
+.dropdownMenu li {
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdownMenu.open {
+    height: auto;
+}
+
+.actionBtn {
+    display: flex;
+    align-items: center;
+}
+
+.searchInput {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: black;
+    font-family: "MyFontBold";
+    width: 72px;
+}
+
+.actionBtn i {
+    font-size: 27px;
+}
+
+.searchInput::placeholder {
+    color: black;
+}
+
+
+.bodySection {
+    display: flex;
+    flex-direction: row;
+    padding: 50px;
+}
+
+.leftContent {
+    width: 70%;
+}
+
+.heading {
+    margin-bottom: 30px;
+    font-family: "Budmo W00 Solid";
+    font-weight: 400;
+}
+
+.contentWrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.displayContainer {
+    width: 208px;
+}
+
+.displayContainer img {
+    width: 208px;
+    height: auto;
+}
+
+.imgContent {
+    margin-top: 20px;
+}
+
+.mainTitle {
+    margin: 0;
+    font-family: "MyFontBold";
+}
+
+.description {
+    margin: 5px 0;
+    font-family: 'MyFont';
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 300px;
+}
+
+.date {
+    margin: 0;
+    font-family: "MyFont";
+}
+
+.rightContent {
+    width: 30%;
+    margin-left: 20px;
+}
+
+.blogDisplayContainer {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+.blogDisplayContainer img {
+    width: 130px;
+    height: 111px;
+    border-radius: 15px;
+}
+
+.blogContent {
+    margin-left: 20px;
+}
+
+.swiper {
+    width: 100%;
+    height: auto;
+}
+
+.swiper-slide {
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 330px;
+    height: auto;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 330px;
+    height: auto;
+    object-fit: cover;
+}
+
+@media(max-width: 1200px) {
+    .bodySection {
+        display: flex;
+        flex-direction: column-reverse;
+        padding: 50px;
+    }
+
+    .rightContent {
+        width: 100%;
+        margin: 0;
+    }
+
+    .leftContent {
+        width: 100%;
+    }
+}
+
+@media(max-width: 992px) {
+
+    .nvbar .links,
+    .nvbar .actionBtn {
+        display: none;
+    }
+
+    .nvbar .toggleBtn {
+        display: block;
+    }
+
+    .dropdownMenu {
+        display: block;
+    }
+
+    .contentWrapper {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+    }
+}
+
+@media(max-width: 768px) {
+    .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+}
+
+@media(max-width: 535px) {
+    .dropdownMenu {
+        position: absolute;
+        top: 93px;
+        right: 0;
+        width: 100%;
+        backdrop-filter: blur(15px);
+        border-radius: 10px;
+        overflow: hidden;
+        transition: height 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .heading {
+        margin-bottom: 30px;
+        font-family: "Budmo W00 Solid";
+        font-weight: 400;
+        text-align: center;
+    }
+
+    .description {
+        margin: 5px 0;
+        font-family: 'MyFont';
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        width: 170px;
+    }
+
+    .blogDisplayContainer img {
+        width: 80px;
+        height: auto;
+    }
+}
+
+@media(max-width: 350px) {
+    .description {
+        margin: 5px 0;
+        font-family: 'MyFont';
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        width: 100px;
+    }
+}

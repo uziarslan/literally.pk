@@ -1,0 +1,84 @@
+<%- include('../partials/head', {title: 'Admin Panel'}) %>
+<%- include('../partials/adminnav') %>
+<%- include('../partials/flash') %>
+<div class="formContainer">
+  <form action="/blog" method="post" class="formStyles" enctype="multipart/form-data">
+    <label class="form-label" for="blogTitle">Blog Title</label>
+    <input required id="blogTitle" type="text" name="title" placeholder="Title for the blog" class="form-control" />
+    <label class="form-label mt-1" for="description">Post Title</label>
+    <textarea required id="description" name="description" placeholder="Description" class="form-control"></textarea>
+    <label class="customLabel" for="image">Upload</label>
+    <input accept=".png, .jpg, .jpeg" required id="image" type="file" name="image" class="d-none" />
+    <div id="imagePreviewContainer" class="imagePreviewContainer"></div>
+    <button class="btn btn-success mt-3 w-100" type="submit">Save</button>
+  </form>
+</div>
+<div class="centeredContainer">
+  <h1 class="centeredHeading">Previous Posts</h1>
+</div>
+<div class="previousSection">
+  <% if(blogs.length) {%>
+  <div class="contentWrapper">
+    <% blogs.map(({title, _id, description,image}) => { %>
+    <div class="post">
+      <div class="imageContainer">
+        <img class="blogImage" src="<%= image.path %>" alt="<%= image.filename %>" />
+        <div class="imgContent">
+          <p class="mainTitle"><%= title %></p>
+          <p class="description"><%= description %></p>
+        </div>
+      </div>
+      <div class="buttonWrapper">
+        <a href="/blog/edit/<%= _id %>" class="btn btn-warning">Edit</a>
+        <form action="/blog/delete/<%= _id %>?_method=DELETE" method="post">
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+  <% }else{ %>
+  <p class="centeredText">No post found!</p>
+  <% } %>
+</div>
+<script>
+  let selectedImages = [];
+
+  // Change the ID to match the file input ID
+  document.getElementById("image")
+    .addEventListener("change", function(event) {
+      const previewContainer = document.getElementById("imagePreviewContainer");
+
+      selectedImages = []; // Clear the selected images array
+
+      while (previewContainer.firstChild) {
+        previewContainer.removeChild(previewContainer.firstChild);
+      }
+
+      const files = event.target.files;
+
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const previewWrapper = document.createElement("div");
+        previewWrapper.classList.add("imagePreviewWrapper");
+        previewContainer.appendChild(previewWrapper);
+        const imageElement = document.createElement("img");
+        imageElement.classList.add("previewImage");
+        imageElement.file = file;
+        previewWrapper.appendChild(imageElement);
+        selectedImages.push({
+          file
+          , previewWrapper
+        });
+        const reader = new FileReader();
+        reader.onload = (function(img) {
+          return function(e) {
+            img.src = e.target.result;
+          };
+        })(imageElement);
+        reader.readAsDataURL(file);
+      }
+    });
+
+</script>
+<%- include('../partials/body') %>
